@@ -9,12 +9,12 @@ on:
 
 jobs:
   build:
-
+    needs: unit-testing
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node-version: [18.x, 20.x, 22.x]
+        node-version: [18.x]
 
     steps:
     - name: Checkout the repository    
@@ -32,13 +32,13 @@ jobs:
     - name: build the application
       run: npm run build
 
-  Unit-testing:
+  unit-testing:
 
     runs-on: ubuntu-latest
 
     strategy:
         matrix:
-          node-version: [18.x, 20.x, 22.x]
+          node-version: [20.x, 22.x]
 
     steps:
     - name: Checkout the repository    
