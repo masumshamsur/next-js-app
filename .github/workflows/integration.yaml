@@ -49,6 +49,7 @@ jobs:
     - name: build the application
       run: npm run build
 
+
   unit-testing:
 
     runs-on: ubuntu-latest
@@ -72,3 +73,9 @@ jobs:
 
     - name: build the application
       run: npm run test    
+
+    - name: test result
+      uses: actions/upload-artifact@v4
+      with: 
+        name: Mocha-test result
+        path: testresult.xml
