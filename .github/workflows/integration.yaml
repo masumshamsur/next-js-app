@@ -8,6 +8,23 @@ on:
     branches: [ "github-action-practice" ]
 
 jobs:
+  show-context:
+    runs-on: ubuntu-latest
+
+    steps:
+    - name: Checkout Repository
+      uses: actions/checkout@v4
+
+    - name: show github context
+      env: 
+        GITHUB_CONTEXT: ${{ toJSON(github)}}
+      run: |
+      echo "GitHub Context:"
+      echo "$GITHUB_CONTEXT"
+
+    
+
+
   build:
     needs: unit-testing
     runs-on: ubuntu-latest
